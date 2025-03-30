@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="app">
-      {isLoading && <Preloader />}
+      {isLoading && location.pathname !== '/' && <Preloader />}
 
       <Routes>
         <Route path="/" element={<StartPage />} />
