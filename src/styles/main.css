@@ -1,7 +1,6 @@
 /* Общие стили */
 body {
     min-height: 100vh;
-    padding-bottom: 87px;
     background-color: #FFF;
     color: #FFFFFF;
     font-family: "Roboto", sans-serif;
@@ -35,6 +34,11 @@ body.error-active {
 .app {
     position: relative;
     min-height: 100vh;
+    padding-bottom: 87px;
+}
+
+.app.starting {
+    padding-bottom: 0px;
 }
 
 .page {
@@ -289,6 +293,7 @@ body.error-active {
 }
 
 .carousel {
+    background-color: #f0ecec;
     position: absolute;
     left: 0;
     right: 0;

@@ -25,7 +25,7 @@ function App() {
   }, [location]);
 
   return (
-    <div className="app">
+    <div className={`app ${location.pathname === '/' ? 'starting' : ''}`}>
       {isLoading && location.pathname !== '/' && <Preloader />}
 
       <Routes>
@@ -37,16 +37,10 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
 
-      {location.pathname !== '/'
+      {location.pathname !== '/#'
         || location.pathname !== '/code-input' && <FixedMenu />}
     </div>
   );
 }
-// export default function WrappedApp() {
-//   return (
-//     <Router>
-//       <App />
-//     </Router>
-//   );
-// }
+
 export default App;
