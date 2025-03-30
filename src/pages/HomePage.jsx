@@ -23,7 +23,8 @@ export const HomePage = () => {
         <img src="images/Carousel.png" alt="" />
       </div>
       <Link to="/credit-card" className="linkToCreditCard"></Link>;
-
+      <Link to="/credit-potreb" className="linkToCreditPotreb"></Link>;
+      <Link to="/profile" className="linkToProfile"></Link>;
       {error && <ErrorNotification message={error} />}
     </div>
   )

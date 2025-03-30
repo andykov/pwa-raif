@@ -60,7 +60,33 @@ body.error-active {
     border-radius: 12px;
 }
 
-.linkToCreditCard:active {
+.linkToCreditPotreb {
+    display: block;
+    width: 100%;
+    height: 90px;
+    background: #ccc;
+    position: absolute;
+    top: 1125px;
+    z-index: 10;
+    opacity: 0;
+    font-size: 0;
+}
+
+.linkToProfile {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    opacity: 0.5;
+    top: 24px;
+    left: 24px;
+    border-radius: 48px;
+    font-size: 0;
+    opacity: 0;
+}
+
+.linkToCreditCard:active,
+.linkToCreditPotreb:active,
+.linkToProfile:active {
     background-color: #cecece;
     opacity: 0.2;
 }

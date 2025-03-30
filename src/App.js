@@ -6,6 +6,8 @@ import { CreditCardPage } from './pages/CreditCardPage';
 import { Preloader } from './components/Preloader';
 import { FixedMenu } from './components/FixedMenu';
 import { Routes, Route, useLocation } from 'react-router';
+import { CreditPotrebPage } from './pages/CreditPotrebPage';
+import { ProfilePage } from './pages/ProfilePage';
 
 function App() {
   const location = useLocation();
@@ -31,6 +33,8 @@ function App() {
         <Route path="/code-input" element={<CodeInputPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/credit-card" element={<CreditCardPage />} />
+        <Route path="/credit-potreb" element={<CreditPotrebPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
 
       {location.pathname !== '/'
