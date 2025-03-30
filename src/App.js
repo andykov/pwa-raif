@@ -22,11 +22,11 @@ function App() {
     <div className="app">
       {isLoading && <Preloader />}
       
-      <Routes location={location}>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/code-input" element={<CodeInputPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/credit-card" element={<CreditCardPage />} />
+      <Routes location="/pwa-raif">
+        <Route path="/pwa-raif/" element={<StartPage />} />
+        <Route path="/pwa-raif/code-input" element={<CodeInputPage />} />
+        <Route path="/pwa-raif/home" element={<HomePage />} />
+        <Route path="/pwa-raif/credit-card" element={<CreditCardPage />} />
       </Routes>
 
       {location.pathname !== '/' && <FixedMenu />}
