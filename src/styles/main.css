@@ -2,7 +2,7 @@
 body {
     min-height: 100vh;
     padding-bottom: 87px;
-    background-color: #18191C;
+    background-color: #FFF;
     color: #FFFFFF;
     font-family: "Roboto", sans-serif;
 }
@@ -10,6 +10,26 @@ body {
 img {
     max-width: 100%;
     vertical-align: middle;
+}
+
+.back-button {
+    position: absolute;
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    top: 20px;
+    left: 12px;
+    opacity: 0;
+    font-size: 0;
+}
+
+/* При появлении ошибки */
+body.error-active {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
 
 .app {
@@ -39,6 +59,7 @@ img {
     opacity: 0;
     border-radius: 12px;
 }
+
 .linkToCreditCard:active {
     background-color: #cecece;
     opacity: 0.2;
@@ -97,22 +118,161 @@ img {
     padding: 15px;
     text-align: center;
     animation: slideIn 0.3s forwards;
+    touch-action: none;
+    /* Отключаем нативные жесты */
+    z-index: 10000;
+    /* Поверх всего */
+    user-select: none;
+    /* Запрет выделения текста */
 }
 
 .error-notification.hide {
     animation: slideOut 0.3s forwards;
+    pointer-events: none;
+    /* Отключаем взаимодействие после скрытия */
+}
+
+
+
+.codePage-container {
+    position: relative;
+}
+
+.codePage-result {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 478px;
+    opacity: 0.3;
+}
+
+.code-display {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 30px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 217px;
+}
+
+.code-digit {
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #AFAAAA;
+}
+
+.code-digit.filled {
+    color: #2B2D33;
 }
 
 /* Клавиатура */
 .numpad {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 20px 0;
+    gap: 15px 10px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    margin: 0 auto;
+    opacity: 0.5;
+    top: 500px;
 }
 
 .numpad button {
     padding: 20px;
-    font-size: 24px;
+    font-size: 0;
     border-radius: 10px;
+    background: none;
+    border: none;
+    opacity: 0;
+    width: 118px;
+    height: 67.5px;
+}
+
+.numpad button:last-of-type {
+    grid-column: 2;
+}
+
+.numpad button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.delete-button {
+    padding: 19px;
+    position: absolute;
+    right: 46px;
+    top: 764px;
+    background: none;
+    border: none;
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+.icon-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 28px;
+    height: 28px;
+
+}
+
+.preloader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10000;
+    /* Увеличили z-index */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2f3133;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.carousel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 282px;
+    height: 124px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.carousel img {
+    max-width: none;
+    height: 100%;
 }

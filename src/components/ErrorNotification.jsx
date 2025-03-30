@@ -3,21 +3,42 @@ import '../styles/animations.css';
 
 export const ErrorNotification = ({ message }) => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      document.querySelector('.error-notification')?.classList.add('hide');
-    }, 3000);
+    const handleTouchMove = (e) => e.preventDefault();
+    const notification = document.querySelector('.error-notification');
     
-    return () => clearTimeout(timer);
+    // Блокируем скролл при касании уведомления
+    notification?.addEventListener('touchmove', handleTouchMove, { passive: false });
+    
+    return () => {
+      notification?.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
+
+  const handleTouchStart = (e) => {
+    document.body.classList.add('error-active');
+    const touch = e.touches[0];
+    e.startY = touch.clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    document.body.classList.remove('error-active');
+    const touch = e.changedTouches[0];
+    const deltaY = touch.clientY - e.startY;
+    
+    // Закрываем только при свайпе вверх
+    if (deltaY < -20) {
+      e.target.classList.add('hide');
+      e.preventDefault(); // Блокируем скролл
+      e.stopPropagation();
+    }
+  };
 
   return (
     <div 
       className="error-notification slide-in"
-      onTouchMove={(e) => {
-        if (e.touches[0].clientY < 50) {
-          e.target.classList.add('hide');
-        }
-      }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={(e) => e.preventDefault()}
     >
       {message}
     </div>
