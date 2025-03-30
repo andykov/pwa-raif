@@ -5,7 +5,7 @@ import {HomePage} from './pages/HomePage';
 import {CreditCardPage} from './pages/CreditCardPage';
 import {Preloader} from './components/Preloader';
 import {FixedMenu} from './components/FixedMenu';
-import { Route, Routes, useLocation } from 'react-router';
+import { Routes, Route, useLocation } from 'react-router';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,16 +22,22 @@ function App() {
     <div className="app">
       {isLoading && <Preloader />}
       
-      <Routes location="/pwa-raif">
-        <Route path="/pwa-raif/" element={<StartPage />} />
-        <Route path="/pwa-raif/code-input" element={<CodeInputPage />} />
-        <Route path="/pwa-raif/home" element={<HomePage />} />
-        <Route path="/pwa-raif/credit-card" element={<CreditCardPage />} />
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/code-input" element={<CodeInputPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/credit-card" element={<CreditCardPage />} />
       </Routes>
 
       {location.pathname !== '/' && <FixedMenu />}
     </div>
   );
 }
-
+// export default function WrappedApp() {
+//   return (
+//     <Router>
+//       <App />
+//     </Router>
+//   );
+// }
 export default App;

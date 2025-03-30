@@ -5,12 +5,14 @@ import './styles/main.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { HashRouter } from 'react-router';
+// import WrappedApp from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HashRouter>
       <App />
+      {/* <WrappedApp /> */}
     </HashRouter>
   </React.StrictMode>
 );
