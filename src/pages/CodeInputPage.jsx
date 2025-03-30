@@ -10,7 +10,7 @@ export const CodeInputPage = () => {
 
   const handleSubmit = () => {
     if (code === '3476') {
-      navigate('home');
+      navigate('/home');
     } else {
       setError('Неверный код');
       setTimeout(() => setError(''), 3000);
