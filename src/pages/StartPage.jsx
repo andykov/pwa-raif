@@ -13,7 +13,7 @@ export const StartPage = () => {
 
   return (
     <div className="fullscreen-image">
-      <img src="images/Start.png" alt="Start Screen" />
+      <img src="pwa-raif/images/Start.png" alt="Start Screen" />
     </div>
   );
 };

@@ -22,7 +22,7 @@ export const CodeInputPage = () => {
       <BackButton />
       
       <div className="content">
-        {/* <img src="images/CodeInputScreen.png" alt="Code Input" /> */}
+        {/* <img src="pwa-raif/images/CodeInputScreen.png" alt="Code Input" /> */}
         
         <div className="numpad">
           {[1,2,3,4,5,6,7,8,9,0].map(num => (
